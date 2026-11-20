@@ -1,0 +1,56 @@
+/* Light theme palette. Same names as the dark theme, different values. */
+.root {
+    -fx-font-family: "Segoe UI", "Inter", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13.5px;
+
+    -app-bg-1: #F1F5FB;
+    -app-bg-2: #EAF0FA;
+    -app-bg-3: #E2EAF7;
+
+    -glass: rgba(255, 255, 255, 0.70);
+    -glass-strong: rgba(255, 255, 255, 0.92);
+    -glass-border: rgba(24, 35, 56, 0.09);
+    -glass-border-soft: rgba(24, 35, 56, 0.06);
+    -glass-highlight: rgba(255, 255, 255, 0.95);
+    -sidebar: rgba(255, 255, 255, 0.62);
+    -popup: #FFFFFF;
+    -dialog-bg: #FFFFFF;
+
+    -text: #182338;
+    -text-2: #4A5875;
+    -text-3: #7A869F;
+
+    -accent: #635BDB;
+    -accent-2: #2997CA;
+    -accent-soft: rgba(99, 91, 219, 0.13);
+    -accent-text: #4F47C4;
+    -success: #159D80;
+    -success-soft: rgba(21, 157, 128, 0.13);
+    -warning: #C98A12;
+    -warning-soft: rgba(201, 138, 18, 0.14);
+    -danger: #D14358;
+    -danger-soft: rgba(209, 67, 88, 0.12);
+    -info: #2997CA;
+    -info-soft: rgba(41, 151, 202, 0.13);
+    -muted-soft: rgba(122, 134, 159, 0.17);
+
+    -input: rgba(255, 255, 255, 0.95);
+    -input-focus: #FFFFFF;
+    -row-hover: rgba(99, 91, 219, 0.06);
+    -row-selected: rgba(99, 91, 219, 0.16);
+    -row-urgent: rgba(201, 138, 18, 0.13);
+    -row-upcoming: rgba(99, 91, 219, 0.08);
+    -shadow: rgba(40, 60, 110, 0.14);
+    -scroll-thumb: rgba(24, 35, 56, 0.22);
+
+    -orb-a: rgba(99, 91, 219, 0.24);
+    -orb-b: rgba(41, 151, 202, 0.22);
+    -orb-c: rgba(21, 157, 128, 0.14);
+
+    -fx-base: #E8EEF9;
+    -fx-background: #F1F5FB;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-text-background-color: #182338;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

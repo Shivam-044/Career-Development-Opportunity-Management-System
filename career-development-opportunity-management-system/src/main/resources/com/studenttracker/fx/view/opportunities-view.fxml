@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studenttracker.fx.controller.OpportunitiesFxController"
+      styleClass="page" spacing="16">
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <HBox styleClass="segmented" alignment="CENTER_LEFT">
+            <fx:define>
+                <ToggleGroup fx:id="filterGroup"/>
+            </fx:define>
+            <ToggleButton text="Open" userData="OPEN" toggleGroup="$filterGroup" selected="true" styleClass="segment"/>
+            <ToggleButton text="Closed" userData="CLOSED" toggleGroup="$filterGroup" styleClass="segment"/>
+            <ToggleButton text="Archived" userData="ARCHIVED" toggleGroup="$filterGroup" styleClass="segment"/>
+            <ToggleButton text="All" userData="ALL" toggleGroup="$filterGroup" styleClass="segment"/>
+        </HBox>
+        <Label text="Amber rows close within 7 days" styleClass="muted"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="archiveButton" text="Archive" styleClass="btn, btn-secondary, hover-lift" onAction="#toggleArchived">
+            <graphic><Region styleClass="icon, icon-archive"/></graphic>
+        </Button>
+        <Button fx:id="linkButton" text="Open listing" styleClass="btn, btn-secondary, hover-lift" onAction="#openListing">
+            <graphic><Region styleClass="icon, icon-open"/></graphic>
+        </Button>
+        <Button fx:id="editButton" text="Edit" styleClass="btn, btn-secondary, hover-lift" onAction="#editOpportunity">
+            <graphic><Region styleClass="icon, icon-edit"/></graphic>
+        </Button>
+        <Button fx:id="addButton" text="Add" styleClass="btn, btn-secondary, hover-lift" onAction="#addOpportunity">
+            <graphic><Region styleClass="icon, icon-add"/></graphic>
+        </Button>
+        <Button fx:id="applyButton" text="Mark as applied" styleClass="btn, btn-primary, hover-lift" onAction="#markApplied">
+            <graphic><Region styleClass="icon, icon-check-circle"/></graphic>
+        </Button>
+    </HBox>
+    <VBox styleClass="glass-card, table-card" VBox.vgrow="ALWAYS">
+        <TableView fx:id="table" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</VBox>

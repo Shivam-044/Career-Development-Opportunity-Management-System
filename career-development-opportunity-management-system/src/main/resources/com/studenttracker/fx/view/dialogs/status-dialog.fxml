@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studenttracker.fx.controller.dialog.StatusDialogController"
+      spacing="6" prefWidth="460" styleClass="dialog-form">
+    <Label fx:id="contextLabel" styleClass="dialog-context" wrapText="true"/>
+    <Label text="New status *" styleClass="field-label"/>
+    <ComboBox fx:id="statusCombo" maxWidth="Infinity"/>
+    <Label fx:id="explanationLabel" styleClass="muted" wrapText="true"/>
+</VBox>

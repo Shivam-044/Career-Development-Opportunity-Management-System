@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.studenttracker.fx.components.PageHeader?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studenttracker.fx.controller.ProfileFxController"
+            fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll">
+    <HBox styleClass="page" spacing="20" alignment="TOP_LEFT">
+        <VBox styleClass="glass-card, panel-card" spacing="18" HBox.hgrow="ALWAYS" prefWidth="620">
+            <PageHeader title="Academic details" subtitle="Fields marked * are required"/>
+            <GridPane hgap="16" vgap="14">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                </columnConstraints>
+                <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+                    <Label text="Full name *" styleClass="field-label"/>
+                    <TextField fx:id="fullNameField"/>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="Email" styleClass="field-label"/>
+                    <TextField fx:id="emailField" promptText="name@example.com"/>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label text="Roll number" styleClass="field-label"/>
+                    <TextField fx:id="rollNumberField"/>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <Label text="Degree" styleClass="field-label"/>
+                    <TextField fx:id="degreeField" promptText="B.Tech"/>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <Label text="Department" styleClass="field-label"/>
+                    <TextField fx:id="departmentField"/>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <Label text="Graduation year" styleClass="field-label"/>
+                    <TextField fx:id="graduationYearField" promptText="2028"/>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <Label text="CGPA" styleClass="field-label"/>
+                    <TextField fx:id="cgpaField" promptText="0.00 to 10.00"/>
+                </VBox>
+            </GridPane>
+            <Label fx:id="messageLabel" wrapText="true" visible="false" managed="false"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="saveButton" text="Save profile" styleClass="btn, btn-primary, hover-lift" onAction="#save" defaultButton="false">
+                    <graphic><Region styleClass="icon, icon-check-circle"/></graphic>
+                </Button>
+                <Button fx:id="discardButton" text="Discard changes" styleClass="btn, btn-secondary, hover-lift" onAction="#discard"/>
+            </HBox>
+        </VBox>
+
+        <VBox styleClass="glass-card, panel-card, profile-preview" spacing="14" alignment="TOP_CENTER" prefWidth="320"
+              minWidth="300" maxWidth="340">
+            <StackPane styleClass="avatar, avatar-large">
+                <Label fx:id="previewInitials" styleClass="avatar-initials-large"/>
+            </StackPane>
+            <Label fx:id="previewName" styleClass="hero-title-small" wrapText="true"/>
+            <Label fx:id="previewDetail" styleClass="muted" wrapText="true"/>
+            <Separator/>
+            <VBox spacing="12" alignment="CENTER_LEFT" maxWidth="Infinity">
+                <VBox spacing="2">
+                    <Label text="CGPA" styleClass="mini-label"/>
+                    <Label fx:id="previewCgpa" styleClass="big-number"/>
+                    <ProgressBar fx:id="previewCgpaBar" progress="0" maxWidth="Infinity" styleClass="progress-glow"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Roll number" styleClass="mini-label"/>
+                    <Label fx:id="previewRoll" styleClass="row-title"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Email" styleClass="mini-label"/>
+                    <Label fx:id="previewEmail" styleClass="row-title" wrapText="true"/>
+                </VBox>
+            </VBox>
+        </VBox>
+    </HBox>
+</ScrollPane>

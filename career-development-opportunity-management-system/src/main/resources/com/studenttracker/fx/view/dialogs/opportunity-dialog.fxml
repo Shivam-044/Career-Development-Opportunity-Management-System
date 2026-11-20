@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studenttracker.fx.controller.dialog.OpportunityDialogController"
+      spacing="6" prefWidth="500" styleClass="dialog-form">
+    <Label text="Company *" styleClass="field-label"/>
+    <ComboBox fx:id="companyCombo" maxWidth="Infinity" promptText="Choose a company"/>
+    <Label text="Role title *" styleClass="field-label"/>
+    <TextField fx:id="roleField"/>
+    <HBox spacing="14">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Type *" styleClass="field-label"/>
+            <ComboBox fx:id="typeCombo" maxWidth="Infinity"/>
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Listing status *" styleClass="field-label"/>
+            <ComboBox fx:id="statusCombo" maxWidth="Infinity"/>
+        </VBox>
+    </HBox>
+    <HBox spacing="14">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Location" styleClass="field-label"/>
+            <TextField fx:id="locationField"/>
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Work mode" styleClass="field-label"/>
+            <ComboBox fx:id="workModeCombo" maxWidth="Infinity"/>
+        </VBox>
+    </HBox>
+    <HBox spacing="14">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Deadline" styleClass="field-label"/>
+            <DatePicker fx:id="deadlinePicker" maxWidth="Infinity"/>
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Minimum CGPA" styleClass="field-label"/>
+            <TextField fx:id="minCgpaField" promptText="0.00 to 10.00"/>
+        </VBox>
+    </HBox>
+    <Label text="Source URL" styleClass="field-label"/>
+    <TextField fx:id="sourceUrlField" promptText="https://"/>
+    <Label text="Required skills" styleClass="field-label"/>
+    <TextField fx:id="skillsField" promptText="Java, SQL, Git"/>
+    <Label text="Description" styleClass="field-label"/>
+    <TextArea fx:id="descriptionArea" prefRowCount="3" wrapText="true"/>
+</VBox>

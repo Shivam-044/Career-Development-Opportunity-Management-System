@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.studenttracker.fx.components.PageHeader?>
+<?import com.studenttracker.fx.components.StatCard?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studenttracker.fx.controller.ReportsFxController"
+            fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll">
+    <VBox styleClass="page" spacing="22">
+        <HBox spacing="16">
+            <StatCard fx:id="totalCard" title="Applications" icon="assignment" variant="info" hint="All statuses" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <StatCard fx:id="offersCard" title="Offers" icon="check-circle" variant="success" hint="At offer stage" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <StatCard fx:id="roundsCard" title="Interview rounds" icon="event" variant="accent" hint="Recorded in total" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <StatCard fx:id="passedCard" title="Rounds passed" icon="bolt" variant="warning" hint="Result marked as passed" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+
+        <HBox spacing="16">
+            <VBox styleClass="glass-card, panel-card" spacing="12" HBox.hgrow="ALWAYS" prefWidth="520">
+                <PageHeader title="Applications by status" subtitle="Count of applications in each stage"/>
+                <StackPane minHeight="280">
+                    <BarChart fx:id="statusChart" legendVisible="false" animated="false" minHeight="280" verticalGridLinesVisible="false">
+                        <xAxis><CategoryAxis/></xAxis>
+                        <yAxis><NumberAxis minorTickVisible="false" tickUnit="1" forceZeroInRange="true"/></yAxis>
+                    </BarChart>
+                    <Label fx:id="statusEmpty" text="No applications yet." styleClass="muted" visible="false"/>
+                </StackPane>
+            </VBox>
+            <VBox styleClass="glass-card, panel-card" spacing="12" HBox.hgrow="ALWAYS" prefWidth="420">
+                <PageHeader title="Interview outcomes" subtitle="Results of every recorded round"/>
+                <StackPane minHeight="280">
+                    <PieChart fx:id="interviewChart" legendSide="BOTTOM" labelsVisible="false" minHeight="280"/>
+                    <Label fx:id="interviewEmpty" text="No interviews recorded yet." styleClass="muted" visible="false"/>
+                </StackPane>
+            </VBox>
+        </HBox>
+
+        <VBox styleClass="glass-card, panel-card" spacing="14">
+            <PageHeader title="Export" subtitle="Save your data as CSV to open in Excel or any spreadsheet"/>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button fx:id="exportApplicationsButton" text="Export applications" styleClass="btn, btn-primary, hover-lift"
+                        onAction="#exportApplications">
+                    <graphic><Region styleClass="icon, icon-download"/></graphic>
+                </Button>
+                <Button fx:id="exportInterviewsButton" text="Export interviews" styleClass="btn, btn-secondary, hover-lift"
+                        onAction="#exportInterviews">
+                    <graphic><Region styleClass="icon, icon-download"/></graphic>
+                </Button>
+                <Button fx:id="refreshButton" text="Refresh" styleClass="btn, btn-secondary, hover-lift" onAction="#refresh">
+                    <graphic><Region styleClass="icon, icon-refresh"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

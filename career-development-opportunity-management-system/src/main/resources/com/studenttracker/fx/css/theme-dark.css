@@ -1,0 +1,57 @@
+/* Dark theme palette. Component rules in components.css only use these names. */
+.root {
+    -fx-font-family: "Segoe UI", "Inter", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13.5px;
+
+    -app-bg-1: #0B1020;
+    -app-bg-2: #101629;
+    -app-bg-3: #1B2940;
+
+    -glass: rgba(255, 255, 255, 0.055);
+    -glass-strong: rgba(255, 255, 255, 0.10);
+    -glass-border: rgba(255, 255, 255, 0.13);
+    -glass-border-soft: rgba(255, 255, 255, 0.07);
+    -glass-highlight: rgba(255, 255, 255, 0.24);
+    -sidebar: rgba(8, 12, 26, 0.58);
+    -popup: #18233A;
+    -dialog-bg: #162036;
+
+    -text: #F8FAFC;
+    -text-2: #B4BED3;
+    -text-3: #7F8BA6;
+
+    -accent: #7667F8;
+    -accent-2: #4CA9D8;
+    -accent-soft: rgba(118, 103, 248, 0.22);
+    -accent-text: #A79CFF;
+    -success: #29C9A5;
+    -success-soft: rgba(41, 201, 165, 0.17);
+    -warning: #F5B94A;
+    -warning-soft: rgba(245, 185, 74, 0.16);
+    -danger: #F26B7A;
+    -danger-soft: rgba(242, 107, 122, 0.17);
+    -info: #4CA9D8;
+    -info-soft: rgba(76, 169, 216, 0.18);
+    -muted-soft: rgba(139, 150, 174, 0.18);
+
+    -input: rgba(255, 255, 255, 0.07);
+    -input-focus: rgba(255, 255, 255, 0.11);
+    -row-hover: rgba(255, 255, 255, 0.055);
+    -row-selected: rgba(118, 103, 248, 0.30);
+    -row-urgent: rgba(245, 185, 74, 0.11);
+    -row-upcoming: rgba(118, 103, 248, 0.12);
+    -shadow: rgba(0, 0, 0, 0.45);
+    -scroll-thumb: rgba(255, 255, 255, 0.22);
+
+    -orb-a: rgba(118, 103, 248, 0.46);
+    -orb-b: rgba(76, 169, 216, 0.34);
+    -orb-c: rgba(41, 201, 165, 0.20);
+
+    /* Modena base colours so any stock control we did not restyle still reads correctly. */
+    -fx-base: #1B2940;
+    -fx-background: #101629;
+    -fx-control-inner-background: #18233A;
+    -fx-text-background-color: #F8FAFC;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

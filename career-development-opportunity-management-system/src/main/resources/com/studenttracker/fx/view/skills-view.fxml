@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studenttracker.fx.controller.SkillsFxController"
+      styleClass="page" spacing="16">
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <HBox styleClass="segmented" alignment="CENTER_LEFT">
+            <fx:define>
+                <ToggleGroup fx:id="filterGroup"/>
+            </fx:define>
+            <ToggleButton text="All" userData="ALL" toggleGroup="$filterGroup" selected="true" styleClass="segment"/>
+            <ToggleButton text="Learning" userData="LEARNING" toggleGroup="$filterGroup" styleClass="segment"/>
+            <ToggleButton text="Completed" userData="COMPLETED" toggleGroup="$filterGroup" styleClass="segment"/>
+        </HBox>
+        <Label fx:id="summaryLabel" styleClass="muted"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="removeButton" text="Remove" styleClass="btn, btn-danger, hover-lift" onAction="#removeSkill">
+            <graphic><Region styleClass="icon, icon-delete"/></graphic>
+        </Button>
+        <Button fx:id="editButton" text="Edit" styleClass="btn, btn-secondary, hover-lift" onAction="#editSkill">
+            <graphic><Region styleClass="icon, icon-edit"/></graphic>
+        </Button>
+        <Button fx:id="addButton" text="Add skill" styleClass="btn, btn-primary, hover-lift" onAction="#addSkill">
+            <graphic><Region styleClass="icon, icon-add"/></graphic>
+        </Button>
+    </HBox>
+    <VBox styleClass="glass-card, table-card" VBox.vgrow="ALWAYS">
+        <TableView fx:id="table" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</VBox>

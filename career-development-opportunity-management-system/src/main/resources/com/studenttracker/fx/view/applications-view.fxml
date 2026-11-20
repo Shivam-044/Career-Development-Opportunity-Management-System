@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.studenttracker.fx.components.PageHeader?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studenttracker.fx.controller.ApplicationsFxController"
+      styleClass="page" spacing="16">
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <ComboBox fx:id="statusFilter" prefWidth="190"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="notesButton" text="Notes" styleClass="btn, btn-secondary, hover-lift" onAction="#editNotes">
+            <graphic><Region styleClass="icon, icon-edit"/></graphic>
+        </Button>
+        <Button fx:id="interviewButton" text="Add interview" styleClass="btn, btn-secondary, hover-lift" onAction="#addInterview">
+            <graphic><Region styleClass="icon, icon-event"/></graphic>
+        </Button>
+        <Button fx:id="correctButton" text="Correct status" styleClass="btn, btn-secondary, hover-lift" onAction="#correctStatus"/>
+        <Button fx:id="statusButton" text="Update status" styleClass="btn, btn-primary, hover-lift" onAction="#updateStatus">
+            <graphic><Region styleClass="icon, icon-check-circle"/></graphic>
+        </Button>
+    </HBox>
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <VBox styleClass="glass-card, table-card" HBox.hgrow="ALWAYS" prefWidth="640">
+            <TableView fx:id="table" VBox.vgrow="ALWAYS"/>
+        </VBox>
+        <VBox styleClass="glass-card, panel-card, detail-card" spacing="12" prefWidth="340" minWidth="320" maxWidth="360">
+            <PageHeader title="Details" subtitle="Select an application to see more"/>
+            <Label fx:id="detailEmpty" text="Nothing selected yet." styleClass="muted" wrapText="true"/>
+            <VBox fx:id="detailContent" spacing="12" visible="false" managed="false">
+                <Label fx:id="detailRole" styleClass="hero-title-small" wrapText="true"/>
+                <Label fx:id="detailCompany" styleClass="muted" wrapText="true"/>
+                <HBox fx:id="detailStatusHolder" alignment="CENTER_LEFT" spacing="8"/>
+                <VBox spacing="2">
+                    <Label text="Applied on" styleClass="mini-label"/>
+                    <Label fx:id="detailApplied" styleClass="row-title"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Notes" styleClass="mini-label"/>
+                    <Label fx:id="detailNotes" styleClass="row-title" wrapText="true"/>
+                </VBox>
+                <Separator/>
+                <Label text="Interview rounds" styleClass="mini-label"/>
+                <VBox fx:id="detailInterviews" spacing="8"/>
+            </VBox>
+        </VBox>
+    </HBox>
+</VBox>

@@ -1,0 +1,7 @@
+# Copy this file to config/application.properties and fill in your values.
+# The copy is ignored by Git. Environment variables DB_URL, DB_USER and
+# DB_PASSWORD take precedence over anything set here.
+
+db.url=jdbc:mysql://localhost:3306/student_placement_tracker?useSSL=false&allowPublicKeyRetrieval=true
+db.user=tracker_app
+db.password=

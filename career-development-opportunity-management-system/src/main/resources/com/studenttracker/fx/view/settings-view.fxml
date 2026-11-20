@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.studenttracker.fx.components.PageHeader?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studenttracker.fx.controller.SettingsFxController"
+            fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll">
+    <VBox styleClass="page" spacing="20" maxWidth="820">
+        <VBox styleClass="glass-card, panel-card" spacing="16">
+            <PageHeader title="Appearance" subtitle="Your choice is remembered next time you open the app"/>
+            <HBox styleClass="segmented" alignment="CENTER_LEFT" maxWidth="260">
+                <fx:define>
+                    <ToggleGroup fx:id="themeGroup"/>
+                </fx:define>
+                <ToggleButton fx:id="lightToggle" text="Light" userData="LIGHT" toggleGroup="$themeGroup" styleClass="segment"/>
+                <ToggleButton fx:id="darkToggle" text="Dark" userData="DARK" toggleGroup="$themeGroup" styleClass="segment"/>
+            </HBox>
+        </VBox>
+
+        <VBox styleClass="glass-card, panel-card" spacing="14">
+            <PageHeader title="Accessibility" subtitle="Comfort options"/>
+            <CheckBox fx:id="reduceMotion" text="Reduce motion (turn off page transitions and animated counters)"
+                      onAction="#reduceMotionChanged"/>
+        </VBox>
+
+        <VBox styleClass="glass-card, panel-card" spacing="14">
+            <PageHeader title="Database connection" subtitle="Settings come from environment variables or the settings file"/>
+            <VBox spacing="2">
+                <Label text="Server" styleClass="mini-label"/>
+                <Label fx:id="serverLabel" styleClass="row-title" wrapText="true"/>
+            </VBox>
+            <VBox spacing="2">
+                <Label text="Account" styleClass="mini-label"/>
+                <Label fx:id="accountLabel" styleClass="row-title"/>
+            </VBox>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button fx:id="testButton" text="Test connection" styleClass="btn, btn-secondary, hover-lift" onAction="#testConnection">
+                    <graphic><Region styleClass="icon, icon-refresh"/></graphic>
+                </Button>
+                <Label fx:id="testResult" wrapText="true" maxWidth="460"/>
+            </HBox>
+        </VBox>
+
+        <VBox styleClass="glass-card, panel-card" spacing="8">
+            <PageHeader title="About"/>
+            <Label fx:id="aboutLabel" styleClass="muted" wrapText="true"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

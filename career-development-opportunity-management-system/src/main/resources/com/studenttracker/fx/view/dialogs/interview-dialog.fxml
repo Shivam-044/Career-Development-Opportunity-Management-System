@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studenttracker.fx.controller.dialog.InterviewDialogController"
+      spacing="6" prefWidth="480" styleClass="dialog-form">
+    <Label text="Application *" styleClass="field-label"/>
+    <ComboBox fx:id="applicationCombo" maxWidth="Infinity" promptText="Choose an application"/>
+    <Label fx:id="applicationLabel" styleClass="dialog-context" wrapText="true" visible="false" managed="false"/>
+    <Label text="Round *" styleClass="field-label"/>
+    <TextField fx:id="roundField" promptText="Technical round 1"/>
+    <HBox spacing="14">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Date *" styleClass="field-label"/>
+            <DatePicker fx:id="datePicker" maxWidth="Infinity"/>
+        </VBox>
+        <VBox spacing="6" prefWidth="130">
+            <Label text="Time *" styleClass="field-label"/>
+            <TextField fx:id="timeField" promptText="14:30"/>
+        </VBox>
+    </HBox>
+    <HBox spacing="14">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Mode *" styleClass="field-label"/>
+            <ComboBox fx:id="modeCombo" maxWidth="Infinity"/>
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Result *" styleClass="field-label"/>
+            <ComboBox fx:id="resultCombo" maxWidth="Infinity"/>
+        </VBox>
+    </HBox>
+    <Label text="Feedback" styleClass="field-label"/>
+    <TextArea fx:id="feedbackArea" prefRowCount="3" wrapText="true"/>
+</VBox>

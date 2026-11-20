@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.studenttracker.fx.controller.MainShellController"
+           styleClass="app-root">
+
+    <!-- Ambient colour behind the glass surfaces -->
+    <Region styleClass="orb, orb-one" StackPane.alignment="TOP_LEFT" prefWidth="620" prefHeight="620"
+            maxWidth="-Infinity" maxHeight="-Infinity" translateX="-210" translateY="-240" mouseTransparent="true"/>
+    <Region styleClass="orb, orb-two" StackPane.alignment="BOTTOM_RIGHT" prefWidth="720" prefHeight="720"
+            maxWidth="-Infinity" maxHeight="-Infinity" translateX="230" translateY="260" mouseTransparent="true"/>
+    <Region styleClass="orb, orb-three" StackPane.alignment="CENTER_RIGHT" prefWidth="420" prefHeight="420"
+            maxWidth="-Infinity" maxHeight="-Infinity" translateX="160" translateY="-120" mouseTransparent="true"/>
+
+    <HBox>
+        <!-- Sidebar -->
+        <VBox styleClass="sidebar" prefWidth="248" minWidth="248" maxWidth="248" spacing="6">
+            <HBox styleClass="brand" alignment="CENTER_LEFT" spacing="12">
+                <ImageView fitWidth="42" fitHeight="42" preserveRatio="true" smooth="true">
+                    <image>
+                        <Image url="@../assets/logo.png"/>
+                    </image>
+                </ImageView>
+                <VBox spacing="1">
+                    <Label text="CareerForge" styleClass="brand-title"/>
+                    <Label text="Prepare. Apply. Get hired." styleClass="brand-subtitle"/>
+                </VBox>
+            </HBox>
+
+            <Label text="WORKSPACE" styleClass="nav-section"/>
+            <fx:define>
+                <ToggleGroup fx:id="navGroup"/>
+            </fx:define>
+            <ToggleButton text="Dashboard" userData="DASHBOARD" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity" selected="true">
+                <graphic><Region styleClass="icon, icon-dashboard"/></graphic>
+            </ToggleButton>
+            <ToggleButton text="My Profile" userData="PROFILE" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-person"/></graphic>
+            </ToggleButton>
+            <ToggleButton text="Skills" userData="SKILLS" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-bolt"/></graphic>
+            </ToggleButton>
+
+            <Label text="PIPELINE" styleClass="nav-section"/>
+            <ToggleButton text="Companies" userData="COMPANIES" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-business"/></graphic>
+            </ToggleButton>
+            <ToggleButton text="Opportunities" userData="OPPORTUNITIES" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-work"/></graphic>
+            </ToggleButton>
+            <ToggleButton text="Applications" userData="APPLICATIONS" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-assignment"/></graphic>
+            </ToggleButton>
+            <ToggleButton text="Interviews" userData="INTERVIEWS" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-event"/></graphic>
+            </ToggleButton>
+
+            <Label text="INSIGHTS" styleClass="nav-section"/>
+            <ToggleButton text="Reports" userData="REPORTS" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-chart"/></graphic>
+            </ToggleButton>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <ToggleButton text="Settings" userData="SETTINGS" toggleGroup="$navGroup"
+                          styleClass="nav-item" maxWidth="Infinity">
+                <graphic><Region styleClass="icon, icon-settings"/></graphic>
+            </ToggleButton>
+            <Label fx:id="versionLabel" styleClass="version-label"/>
+        </VBox>
+
+        <!-- Main column -->
+        <VBox HBox.hgrow="ALWAYS" styleClass="main-column">
+            <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="14">
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label fx:id="pageTitle" styleClass="page-title"/>
+                    <Label fx:id="pageSubtitle" styleClass="page-subtitle"/>
+                </VBox>
+
+                <HBox fx:id="searchBox" styleClass="search-box" alignment="CENTER_LEFT" spacing="8"
+                      prefWidth="300" minWidth="220">
+                    <Region styleClass="icon, icon-search"/>
+                    <TextField fx:id="searchField" styleClass="search-field" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <Button styleClass="btn-icon" onAction="#toggleTheme" focusTraversable="true">
+                    <graphic><Region fx:id="themeIcon" styleClass="icon, icon-sun"/></graphic>
+                    <tooltip><Tooltip text="Switch between light and dark"/></tooltip>
+                </Button>
+
+                <StackPane>
+                    <Button fx:id="bellButton" styleClass="btn-icon" onAction="#toggleNotifications">
+                        <graphic><Region styleClass="icon, icon-bell"/></graphic>
+                        <tooltip><Tooltip text="Reminders"/></tooltip>
+                    </Button>
+                    <Label fx:id="notificationBadge" styleClass="notification-badge" StackPane.alignment="TOP_RIGHT"
+                           mouseTransparent="true" visible="false" managed="false"/>
+                </StackPane>
+
+                <HBox styleClass="avatar-chip" alignment="CENTER_LEFT" spacing="10">
+                    <StackPane styleClass="avatar">
+                        <Label fx:id="avatarInitials" styleClass="avatar-initials"/>
+                    </StackPane>
+                    <VBox spacing="0">
+                        <Label fx:id="avatarName" styleClass="avatar-name"/>
+                        <Label text="Student" styleClass="avatar-role"/>
+                    </VBox>
+                </HBox>
+            </HBox>
+
+            <ProgressBar fx:id="busyBar" progress="-1" maxWidth="Infinity" prefHeight="3" minHeight="3" maxHeight="3"
+                         styleClass="busy-bar" opacity="0"/>
+
+            <StackPane fx:id="contentHost" styleClass="content-host" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </HBox>
+
+    <!-- Reminder panel -->
+    <VBox fx:id="notificationPanel" styleClass="glass-card, notification-panel" spacing="12"
+          StackPane.alignment="TOP_RIGHT" prefWidth="380" maxWidth="380" maxHeight="-Infinity"
+          visible="false" managed="false">
+        <StackPane.margin>
+            <Insets top="82" right="26"/>
+        </StackPane.margin>
+        <HBox alignment="CENTER_LEFT">
+            <Label text="Reminders" styleClass="card-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="clearAllButton" text="Clear all" styleClass="btn-link" onAction="#dismissAll"/>
+        </HBox>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxHeight="360" styleClass="plain-scroll">
+            <VBox fx:id="notificationList" spacing="8"/>
+        </ScrollPane>
+        <Label fx:id="notificationEmpty" text="You're all caught up. Interviews and deadlines in the next 7 days show up here."
+               styleClass="muted" wrapText="true"/>
+    </VBox>
+
+    <!-- Toasts -->
+    <VBox fx:id="toastContainer" spacing="10" alignment="BOTTOM_RIGHT" pickOnBounds="false"
+          StackPane.alignment="BOTTOM_RIGHT" maxWidth="-Infinity" maxHeight="-Infinity">
+        <StackPane.margin>
+            <Insets bottom="24" right="24"/>
+        </StackPane.margin>
+    </VBox>
+</StackPane>

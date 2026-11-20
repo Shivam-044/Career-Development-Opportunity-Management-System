@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.studenttracker.fx.components.PageHeader?>
+<?import com.studenttracker.fx.components.StatCard?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.studenttracker.fx.controller.DashboardFxController"
+            fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll">
+    <VBox styleClass="page" spacing="22">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label fx:id="greetingLabel" styleClass="hero-title"/>
+                <Label fx:id="greetingSubtitle" styleClass="muted"/>
+            </VBox>
+            <Button fx:id="refreshButton" text="Refresh" styleClass="btn, btn-secondary, hover-lift" onAction="#refresh">
+                <graphic><Region styleClass="icon, icon-refresh"/></graphic>
+            </Button>
+        </HBox>
+
+        <GridPane fx:id="cardGrid" hgap="16" vgap="16">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+            </columnConstraints>
+            <StatCard fx:id="savedCard" title="Saved opportunities" icon="work" variant="accent"
+                      hint="Everything not archived" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <StatCard fx:id="activeCard" title="Active applications" icon="assignment" variant="info"
+                      hint="Applied, assessment or interview" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <StatCard fx:id="interviewsCard" title="Upcoming interviews" icon="event" variant="accent"
+                      hint="Scheduled from now on" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <StatCard fx:id="offersCard" title="Offers received" icon="check-circle" variant="success"
+                      hint="Applications at offer stage" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <StatCard fx:id="learningCard" title="Skills in progress" icon="bolt" variant="warning"
+                      hint="Currently learning" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <StatCard fx:id="completedCard" title="Skills completed" icon="check-circle" variant="success"
+                      hint="Marked as completed" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <StatCard fx:id="deadlinesCard" title="Closing this week" icon="work" variant="warning"
+                      hint="Open listings, next 7 days" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <StatCard fx:id="totalCard" title="All applications" icon="assignment" variant="info"
+                      hint="Across every status" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        </GridPane>
+
+        <HBox spacing="16">
+            <VBox fx:id="statusCard" styleClass="glass-card, panel-card" spacing="12" HBox.hgrow="ALWAYS" prefWidth="560">
+                <PageHeader title="Applications by status" subtitle="How your applications are spread across the workflow"/>
+                <StackPane minHeight="270">
+                    <PieChart fx:id="statusChart" legendSide="RIGHT" labelsVisible="false" minHeight="270"/>
+                    <Label fx:id="statusEmpty" text="No applications yet. Mark an opportunity as applied to see this chart."
+                           styleClass="muted" wrapText="true" maxWidth="300" visible="false"/>
+                </StackPane>
+            </VBox>
+            <VBox fx:id="skillCard" styleClass="glass-card, panel-card" spacing="12" prefWidth="340" minWidth="300">
+                <PageHeader title="Skill progress" subtitle="Completed against everything you track"/>
+                <Label fx:id="skillPercent" styleClass="big-number"/>
+                <ProgressBar fx:id="skillProgress" progress="0" maxWidth="Infinity" styleClass="progress-glow"/>
+                <Label fx:id="skillSummary" styleClass="muted" wrapText="true"/>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="16">
+            <VBox fx:id="interviewCard" styleClass="glass-card, panel-card" spacing="12" HBox.hgrow="ALWAYS" prefWidth="420">
+                <PageHeader title="Upcoming interviews" subtitle="Your next rounds"/>
+                <VBox fx:id="interviewList" spacing="8"/>
+                <Label fx:id="interviewEmpty" text="No interviews scheduled." styleClass="muted"/>
+            </VBox>
+            <VBox fx:id="deadlineCard" styleClass="glass-card, panel-card" spacing="12" HBox.hgrow="ALWAYS" prefWidth="420">
+                <PageHeader title="Closing soon" subtitle="Open listings with a deadline in the next 7 days"/>
+                <VBox fx:id="deadlineList" spacing="8"/>
+                <Label fx:id="deadlineEmpty" text="No deadlines in the next 7 days." styleClass="muted"/>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

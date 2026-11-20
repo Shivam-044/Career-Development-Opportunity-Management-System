@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studenttracker.fx.controller.dialog.CompanyDialogController"
+      spacing="6" prefWidth="460" styleClass="dialog-form">
+    <Label text="Company name *" styleClass="field-label"/>
+    <TextField fx:id="nameField"/>
+    <Label text="Industry" styleClass="field-label"/>
+    <TextField fx:id="industryField"/>
+    <Label text="Website" styleClass="field-label"/>
+    <TextField fx:id="websiteField" promptText="https://"/>
+    <Label text="Location" styleClass="field-label"/>
+    <TextField fx:id="locationField"/>
+    <Label text="Notes" styleClass="field-label"/>
+    <TextArea fx:id="notesArea" prefRowCount="3" wrapText="true"/>
+</VBox>
